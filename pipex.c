@@ -6,7 +6,7 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 21:02:48 by mbouhaba          #+#    #+#             */
-/*   Updated: 2022/02/18 19:51:12 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2022/02/19 23:24:23 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**find_path(char **str)
 		if (!ft_strncmp(str[i], "PATH", 4))
 		{
 			new = ft_substr(str[i], 5, ft_strlen(str[i]));
-			//free(new);
+			free(new);
 			return (ft_split(new, ':'));
 		}
 		i++;
@@ -35,9 +35,12 @@ int	checkfile(char *str)
 {
 	int	fd;
 
-	fd = open(str, O_RDWR, 0644);
+	fd = open(str, O_RDONLY, 0644);
 	if (fd < 0)
+	{
 		perror("makaynch");
+		exit(0);
+	}
 	return (fd);
 }
 
@@ -45,9 +48,12 @@ int	check_last_file(char *s)
 {
 	int	fds;
 
-	fds = open(s, O_CREAT | O_WRONLY, 0644);
+	fds = open(s, O_TRUNC | O_CREAT | O_WRONLY, 0644);
 	if (fds < 0)
+	{	
 		perror("erreeur");
+		exit(0);
+	}
 	return (fds);
 }
 
@@ -67,13 +73,15 @@ char	**check_cmd(char *str, char **m)
 		r = ft_strjoin(path[i], split[0]);
 		if (!access(r, X_OK))
 		{
-			//free(split[0]);
+			ft_free(path, ++i);
+			free(split[0]);
 			split[0] = r;
 			return (split);
 		}
-		//free(r);
+		free (r);
 		i++;
 	}
+	free(path);
 	return (split);
 }
 
@@ -97,6 +105,5 @@ int	main(int ac, char *av[], char *env[])
 		wait (NULL);
 		wait (NULL);
 	}
-	while (1);
 	return (0);
 }

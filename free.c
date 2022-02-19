@@ -6,20 +6,18 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:22:07 by mbouhaba          #+#    #+#             */
-/*   Updated: 2022/02/18 19:50:16 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:07:14 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-// void	ft_free(char **str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		free(str[i]);
-// 		i++;
-// 	}
-// }
+void	ft_free(char **str, int i)
+{
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free (str);
+}

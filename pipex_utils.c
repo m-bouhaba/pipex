@@ -6,7 +6,7 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 20:45:22 by mbouhaba          #+#    #+#             */
-/*   Updated: 2022/02/18 16:45:05 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2022/02/19 20:20:19 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		x[i++] = s2[j++];
 	}
 	x[i] = '\0';
-	//free(s1);
+	free(s1);
 	return (x);
 }
 

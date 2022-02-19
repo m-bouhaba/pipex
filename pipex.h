@@ -6,7 +6,7 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 08:02:51 by mbouhaba          #+#    #+#             */
-/*   Updated: 2022/02/17 08:05:33 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2022/02/19 23:24:47 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 void	first_child(char *s, char *h, char **m, int fd[]);
 void	second_child(char *s, char *h, char **m, int fd[]);
-void	ft_free(char **str);
+void	ft_free(char **str, int i);
 int		checkfile(char *str);
 int		check_last_file(char *s);
 char	**find_path(char **str);
